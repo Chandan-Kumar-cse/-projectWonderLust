@@ -1,0 +1,149 @@
+
+<style>
+  .search-form {
+    display: flex;
+    align-items: center;
+}
+
+.Search-input {
+    border-radius: 25px;
+    padding: 0.5rem 1.5rem;
+    width: 300px;
+}
+
+.Search-btn {
+    background-color: #fe424d;
+    color: #fff;
+    border-radius: 25px;
+    padding: 0.5rem 1rem;
+    margin-left: 0.5rem;
+}
+
+.Search-btn:hover {
+    background-color: #fe424d;
+    color: #fff;
+}
+
+.Search-btn i {
+    margin-right: 0.5rem;
+}
+
+/* Search exactly in center */
+.search-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    .search-center {
+        position: static;
+        transform: none;
+        margin: 10px 0;
+    }
+
+    .Search-input {
+        width: 220px;
+    }
+}
+</style>
+
+
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+
+  <div class="container-fluid">
+
+    <!-- Logo -->
+    <a class="navbar-brand" href="/listings">
+      <i class="fa-regular fa-compass"></i>
+    </a>
+
+    <!-- Mobile button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+
+      <span class="navbar-toggler-icon"></span>
+
+    </button>
+
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+      <!-- LEFT SIDE -->
+      <ul class="navbar-nav">
+
+        <li class="nav-item">
+          <a class="nav-link" href="/listings">
+            Explore
+          </a>
+        </li>
+
+      </ul>
+
+
+      <!-- CENTER SEARCH -->
+      <div class="search-center">
+
+        <form class="d-flex search-form" role="search">
+
+          <input
+            class="form-control Search-input"
+            type="search"
+            placeholder="Search Destinations"
+          />
+
+          <button
+            class="btn Search-btn"
+            type="submit">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+            Search
+
+          </button>
+
+        </form>
+
+      </div>
+
+
+      <!-- RIGHT SIDE -->
+      <div class="navbar-nav ms-auto">
+
+        <a class="nav-link" href="/listings/new">
+          Add new listing
+        </a>
+
+        <% if (!currUser) { %>
+
+          <a class="nav-link" href="/signup">
+            <b>Sign up</b>
+          </a>
+
+          <a class="nav-link" href="/login">
+            <b>Log in</b>
+          </a>
+
+        <% } %>
+
+        <% if (currUser) { %>
+
+          <a class="nav-link" href="/logout">
+            <b>Log out</b>
+          </a>
+
+        <% } %>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</nav>
